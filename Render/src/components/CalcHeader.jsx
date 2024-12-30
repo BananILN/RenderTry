@@ -54,6 +54,15 @@ export default function Calc(){
         SetFirstNum(null);
         SetOperator(null);
     }
+
+    const handleKeyDown= (event) =>{
+        const key =event.key;
+
+        if(/[0-9]/.test(key)){
+            handleNumber
+        }
+    } 
+
     return (
         <div className="Calc">
             <div className="calc-header">
@@ -94,6 +103,13 @@ export default function Calc(){
 
                     </svg>
             <p className="calc-title">Calculator</p>
+            </div>
+            <div className="calc-disp">
+                {firstNum !== null && (
+                    <span>
+                        {firstNum} {operator}
+                    </span>
+                )}
             </div>
            <div className="calc-input">
                 <input type="text" name="" value={inputVal} readOnly/>

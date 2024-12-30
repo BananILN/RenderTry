@@ -44,7 +44,7 @@
 .Calc{
   background-color: rgb(56, 56, 56);
   width: 350px;
-  height:450px;
+  height:470px;
   padding: 1vh;
 }
 
@@ -163,6 +163,13 @@ svg{
   background-color: rgba(0, 0, 0, 0.05); 
 }
 
+.calc-disp {
+  text-align: right;
+  padding: 0px;
+  font-size: 18px;
+  color: #b8b8b8; /* Цвет текста */
+  min-height: 32px; /* Минимальная высота, чтобы избежать скачков */
+}
 
 
 
