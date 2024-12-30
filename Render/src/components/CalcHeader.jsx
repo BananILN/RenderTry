@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -55,13 +55,42 @@ export default function Calc(){
         SetOperator(null);
     }
 
+    const handleBackspace = () => {
+        SetInputVal((prevVal) => prevVal.slice(0, -1));
+      };
+
     const handleKeyDown= (event) =>{
         const key =event.key;
 
         if(/[0-9]/.test(key)){
-            handleNumber
+            handleNumber(key);
         }
-    } 
+
+        if (["+", "-", "*", "/"].includes(key)) {
+            handleOpetator(key);
+          }
+
+         if (key === ".") {
+          handleNumber(".");
+         }
+
+        if (key === "Enter") {
+            handleCalculate();
+        }
+   
+        if (key === "Backspace") {
+            handleBackspace();
+        }
+    };
+
+    useEffect(()=>{
+        window.addEventListener("keydown",handleKeyDown);
+        return () =>{
+            window.removeEventListener("keydown",handleKeyDown);
+        }
+    },[inputVal,firstNum,operator])
+
+    
 
     return (
         <div className="Calc">
@@ -118,10 +147,10 @@ export default function Calc(){
 
             <div className="button-block">
                     <div className="logic-symbol">
-                        <p onClick={handleClear}>C</p>
+                        <p onClick={handleBackspace}>C</p>
                         <p onClick={() => handleOpetator("/")}>/</p>
                         <p onClick={() => handleOpetator("*")}>*</p>
-                        <p >cl</p>
+                        <p onClick={handleClear}>cl</p>
                         <p onClick={() => handleOpetator("-")}>-</p>
                         <p onClick={() => handleOpetator("+")}>+</p>
                         <p onClick={handleCalculate}>=</p>
