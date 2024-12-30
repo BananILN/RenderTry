@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+.Calc{
+  background-color: rgb(56, 56, 56);
+  width: 350px;
+  height:450px;
+  padding: 1vh;
+}
+
+.calc-title{
+  
+
+  margin: 0px;
+}
+
+svg{
+ 
+  
+  margin: 0px;
+}
+
+.calc-header{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 8px;
+}
+
+.cls-1{fill:#5795f1;}.cls-2{fill:#564ac2;}
