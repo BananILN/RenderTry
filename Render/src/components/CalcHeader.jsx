@@ -31,23 +31,28 @@ export default function Calc(){
                     res = firstNum + secondNum;
                     break;
                 case "-":
-                        result = firstNum - secondNum;
-                        break;
+                     res = firstNum - secondNum;
+                    break;
                 case "*":
-                        result = firstNum * secondNum;
-                        break;
+                     res = firstNum * secondNum;
+                     break;
                 case "/":
-                        result = firstNum / secondNum;
-                        break;
-                      default:
-                        break;
+                    res = firstNum / secondNum;
+                     break;
+                 default:
+                  break;
 
             }
+            SetInputVal(res.toString());
+            SetFirstNum(null);
+            SetOperator(null);
         }
     }
     
     const handleClear = () =>{
         SetInputVal("");
+        SetFirstNum(null);
+        SetOperator(null);
     }
     return (
         <div className="Calc">
@@ -98,12 +103,12 @@ export default function Calc(){
             <div className="button-block">
                     <div className="logic-symbol">
                         <p onClick={handleClear}>C</p>
-                        <p>/</p>
-                        <p>*</p>
-                        <p>cl</p>
-                        <p>-</p>
-                        <p>+</p>
-                        <p>=</p>
+                        <p onClick={() => handleOpetator("/")}>/</p>
+                        <p onClick={() => handleOpetator("*")}>*</p>
+                        <p >cl</p>
+                        <p onClick={() => handleOpetator("-")}>-</p>
+                        <p onClick={() => handleOpetator("+")}>+</p>
+                        <p onClick={handleCalculate}>=</p>
                     </div>
                     <div className="number-symbol">
                         <p onClick={()=> handleNumber('7')}>7</p>
